@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
+import Message from '../components/Message';
 import FormContainer from '../components/FormContainer';
 
 const RegisterScreen = ({ location, history }) => {
@@ -29,7 +30,7 @@ const RegisterScreen = ({ location, history }) => {
     if (password != confirmPassword) {
       setMessage("Password doesn't match");
     } else {
-      dispatch(register(name, email, password));
+    //   dispatch(register(name, email, password));
     }
   };
 
