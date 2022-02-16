@@ -12,6 +12,7 @@ const RegisterScreen = ({ location, history }) => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState(null);
 
+
   const submitHandler = (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
@@ -24,7 +25,16 @@ const RegisterScreen = ({ location, history }) => {
     <FormContainer>
       <h1>Sign Up</h1>
       {message && <Message variant='danger'>{message}</Message>}
-      <Form>
+      <Form onSubmit={submitHandler}>
+        <Form.Group controlId='name'>
+          <Form.Label>Name</Form.Label>
+          <Form.Control
+            type='name'
+            placeholder='Name'
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          ></Form.Control>
+        </Form.Group>
         <Form.Group controlId='email'>
           <Form.Label>Email Address</Form.Label>
           <Form.Control
