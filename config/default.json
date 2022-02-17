@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://projectkecil:projectkecil@projectkecil.ao53p.mongodb.net/Data",
+    "secretOrKey": "secret"
+}
