@@ -54,7 +54,7 @@ class ForgotPassword extends Component {
             onClick={this.forgotPassword}
             className='btn btn-raised btn-primary'
           >
-            Send Password Rest Link
+            Send Password Reset Link
           </button>
         </form>
       </div>
