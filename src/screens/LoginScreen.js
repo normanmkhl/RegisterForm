@@ -55,6 +55,12 @@ const LoginScreen = ({ location, history }) => {
         <Button type='submit' variant='primary' style={{ margin: '15px 0px' }}>
           Sign In
         </Button>
+        <p>
+          <Link to='/forgot-password' className='text-danger'>
+            {' '}
+            Forgot Password
+          </Link>
+        </p>
       </Form>
     </FormContainer>
   );

@@ -6,6 +6,8 @@ import {
   USER_REGISTER_FAIL,
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
+  USER_FORGOT_PASSWORD,
+  USER_RESET_PASSWORD,
 } from '../constants/userConstants';
 import axios from 'axios';
 
@@ -86,5 +88,50 @@ export const register = (name, email, password) => async (dispatch) => {
           ? error.response.data.message
           : error.message,
     });
+  }
+};
+
+export const forgotPassword = (email) => async (dispatch) => {
+  console.log('email: ', email);
+
+  try {
+    dispatch({
+      type: USER_FORGOT_PASSWORD,
+    });
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    const { data } = await axios.put(
+      '/api/users/forgot-password',
+      { email },
+      config
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const resetPassword = (resetInfo) => async (dispatch) => {
+  try {
+    dispatch({ type: USER_RESET_PASSWORD });
+    
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    const {data} = await axios.put(
+      '/api/users/reset-password',
+      {resetInfo},
+      config
+    )
+
+  } catch (error) {
+    console.log(error);
   }
 };
